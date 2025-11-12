@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation Page</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .event {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simulation Page</h1>
+    <form id="simulationForm">
+        <h2>Team Information</h2>
+        <label for="team1">Team 1 Name:</label>
+        <input type="text" id="team1" required>
+        <label for="scorer1_1">Scorer 1:</label>
+        <input type="text" id="scorer1_1" required>
+        <label for="scorer1_2">Scorer 2:</label>
+        <input type="text" id="scorer1_2" required>
+        <label for="scorer1_3">Scorer 3:</label>
+        <input type="text" id="scorer1_3" required>
+        
+        <label for="team2">Team 2 Name:</label>
+        <input type="text" id="team2" required>
+        <label for="scorer2_1">Scorer 1:</label>
+        <input type="text" id="scorer2_1" required>
+        <label for="scorer2_2">Scorer 2:</label>
+        <input type="text" id="scorer2_2" required>
+        <label for="scorer2_3">Scorer 3:</label>
+        <input type="text" id="scorer2_3" required>
+        
+        <button type="submit">Start Simulation</button>
+    </form>
+
+    <div id="eventsContainer"></div>
+
+    <script>
+        document.getElementById('simulationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const team1 = document.getElementById('team1').value;
+            const team2 = document.getElementById('team2').value;
+            const scorers1 = [
+                document.getElementById('scorer1_1').value,
+                document.getElementById('scorer1_2').value,
+                document.getElementById('scorer1_3').value
+            ];
+            const scorers2 = [
+                document.getElementById('scorer2_1').value,
+                document.getElementById('scorer2_2').value,
+                document.getElementById('scorer2_3').value
+            ];
+
+            const eventsContainer = document.getElementById('eventsContainer');
+            eventsContainer.innerHTML = '';
+
+            for (let i = 1; i <= 16; i++) {
+                const event = document.createElement('div');
+                event.className = 'event';
+                event.textContent = `Event ${i}: ${Math.random() < 0.5 ? team1 : team2} scores by ${Math.random() < 0.5 ? scorers1[Math.floor(Math.random() * 3)] : scorers2[Math.floor(Math.random() * 3)]}`;
+                eventsContainer.appendChild(event);
+            }
+        });
+    </script>
+</body>
+</html>

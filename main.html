@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swimming Meet Simulator</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <style>
+        body {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        header {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+        nav {
+            text-align: center; /* Center the navigation */
+        }
+        nav ul {
+            display: flex;
+            justify-content: center; /* Center the list items */
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 1s ease-in-out;
+            margin-right: 20px; /* Space between items */
+            font-size: 1.2em; /* Increase text size */
+        }
+        main {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        footer {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.style.opacity = 1;
+            const header = document.querySelector('header');
+            const navItems = document.querySelectorAll('nav ul li');
+            const main = document.querySelector('main');
+            const footer = document.querySelector('footer');
+    
+            header.style.opacity = 1;
+            header.style.transform = 'translateY(0)';
+    
+            // Set nav items opacity after header animation
+            setTimeout(() => {
+                navItems.forEach((item, index) => {
+                    item.style.opacity = 1;
+                });
+            }, 1000); // Adjust the timing as needed
+
+            // Set nav items opacity after header animation
+            setTimeout(() => {
+                navItems.forEach((item) => {
+                    item.style.opacity = 1;
+                });
+            }, 2000); // Adjust the timing as needed
+    
+            // Set main and footer opacity after a delay
+            setTimeout(() => {
+                main.style.opacity = 1;
+                footer.style.opacity = 1;
+            }, 1000); // Adjust the timing as needed
+
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.scrollY + window.innerHeight;
+                if (scrollPosition >= main.offsetTop) {
+                    main.style.opacity = 1;
+                    footer.style.opacity = 1;
+                }
+            });
+        });
+    </script>    
+    <header>
+        <h1>Welcome to the Swimming Meet Simulator</h1>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="meets.html">Meets</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="simulation.html">Simulation</a></li> 
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="about">
+            <h2>About the Simulator</h2>
+            <p>This simulator allows you to create and manage swimming meets.</p>
+        </section>
+        
+        <section id="meets">
+            <h2>Upcoming Meets</h2>
+            <ul>
+                <li>Meet 1: Date & Time</li>
+                <li>Meet 2: Date & Time</li>
+                <li>Meet 3: Date & Time</li>
+            </ul>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact Us 
+                Ryan Woodzell
+                Will Landon
+            </h2>
+            <p>Email: info@swimmingmeetsimulator.com</p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Swimming Meet Simulator. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+<!--             eventsContainer.innerHTML = ''; -->
+<!--  -->
+<!--             // Simulate events for Team 1 -->
+<!--             scorers1.forEach((scorer, index) => { -->
+<!--                 const eventDiv = document.createElement('div'); -->
+<!--                 eventDiv.className = 'event'; -->
+<!--                 eventDiv.textContent = `Goal ${index + 1} by ${scorer} for ${team1}`; -->
+<!--                 eventsContainer.appendChild(eventDiv); -->
